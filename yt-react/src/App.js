@@ -1,18 +1,17 @@
 import './App.css';
-import React, { Component } from 'react';
-import axios from 'axios';
+
+import Repositories from "./containers/Repositories"
 
 class App extends Component {
   constructor(props){
     super(props)
-    this.state ={
+    this.state = {
         data: []
     }
   }
 
   componentDidMount() {
-      axios.get('https://api.github.com/repositories')
-        .then(({ data }) =>{
+    listRepositories().then(data => {
           this.setState({data})
       })
   }
@@ -24,7 +23,7 @@ class App extends Component {
   return (
     <div>
         <ul>
-            {data.map(item => <li>{item.full_name}</li>)}
+            {data.map(item => <Item key={item.id} {...item}/>)}
         </ul>
 
     </div>
