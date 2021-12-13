@@ -24,7 +24,7 @@ class Repositories extends Component {
     return (
       <div>
           <ul>
-              {data.map(item => <Item {...item}/>)}
+              {data.map(item => <Item key={item.id}{...item}/>)}
           </ul>
   
       </div>
