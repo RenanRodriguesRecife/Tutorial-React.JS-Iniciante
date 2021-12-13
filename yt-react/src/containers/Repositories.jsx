@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { listRepositories } from '../api/github'
 import Item from '../components/Item'
 
-class App extends Component {
+class Repositories extends Component {
     constructor(props){
       super(props)
       this.state = {
@@ -19,12 +19,12 @@ class App extends Component {
     
    
     render(){
-        const {data} = this.state
-    console.log(this.stage)
+    const { data } = this.state
+    console.log(data)
     return (
       <div>
           <ul>
-              {data.map(item => <Item key={item.id} {...item}/>)}
+              {data.map(item => <Item {...item}/>)}
           </ul>
   
       </div>
@@ -32,5 +32,5 @@ class App extends Component {
     }
   }
   
-  export default App;
+  export default Repositories;
   
